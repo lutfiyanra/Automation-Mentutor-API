@@ -11,10 +11,10 @@ public class UpdateUser {
     @Steps
     AdminAPI adminAPI;
 
-    @Given("Update user with valid data and authenticated")
-    public void updateUserWithValidDataAndAuthenticated(){
-        adminAPI.updateUserWithValidDataAndAuthorization();
-    }
+//    @Given("Update user with valid data and authenticated")
+//    public void updateUserWithValidDataAndAuthenticated(){
+//        adminAPI.updateUserWithValidDataAndAuthorization();
+//    }
 
     @When("Send update request")
     public void sendUpdateRequest() {
