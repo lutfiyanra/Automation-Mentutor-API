@@ -12,8 +12,8 @@ public class MentorAPI {
     public static final String JSON_REQ_BODY = DIR + "/src/test/resources/JSON/RequestBody";
     public static final String JSON_SCHEMA = DIR+"/src/test/resources/JSON/JsonSchema";
     public static String ATTACHMENTS = DIR+"/src/test/resources/Attachment";
-
     public static final String BEARER_TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZENsYXNzIjoyNSwiYXV0aG9yaXplZCI6dHJ1ZSwiZXhwIjoxNjcwMDY0MTMzLCJyb2xlIjoibWVudGVlIiwidXNlcklkIjo2Mn0.FOF3OBrC0gtNjfdf6kD0g23EAjrpBt0tqx71MF8TWmE";
+    public static final String BEARER_MENTOR = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZENsYXNzIjozLCJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NzAxODI1NzAsInJvbGUiOiJtZW50b3IiLCJ1c2VySWQiOjEwMDN9.jC72fzY3UqymMb4_UmtpowA4WqpqGKYmW3pkQD0wgsM";
     public static String LOGIN = URL + "/login";
 
     public static String GET_ALL_USER = URL +"/admin/users";
@@ -25,7 +25,7 @@ public class MentorAPI {
 
     public static String MENTOR_UPDATE_USER = URL + "/users";
     public static String MANAGE_TASK=URL+"/mentors/task";
-    public static String MANAGE_SPECIFIC_TASK_ID = URL+"/mentors/task/{id_task}";
+    public static String MANAGE_SPECIFIC_TASK_ID = URL+"/mentors/tasks/{id_task}";
     public static String MENTOR_MANAGE_TASK_SCORE = URL+"/mentors/submission/{id_submission}";
     public static String MENTOR_ADD_COMMENT=URL+"/forum/{id_status}";
 
@@ -33,6 +33,7 @@ public class MentorAPI {
     public static String MENTEE_GET_ALL_TASK = URL+"/mentees/tasks";
     public static String MENTEE_POST_SUBMIT_TASK = URL+"/mentees/submission/{id_task}";
     public static String MENTEE_POST_COMMENT_FORUM = URL+"/forum/{id_status}";
+
 
     public static String MANAGE_FORUM = URL+"/forum";
 
@@ -43,4 +44,10 @@ public class MentorAPI {
                 .body(json);
     }
 
+    @Step("Get Task Detail by task id")
+    public void getTaskDetail(int id_task){
+        SerenityRest.given()
+                .headers("Authorization",BEARER_MENTOR)
+                .pathParam("id_task", id_task);
+    }
 }

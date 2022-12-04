@@ -11,18 +11,21 @@ public class UpdateUser {
     @Steps
     AdminAPI adminAPI;
 
-//    @Given("Update user with valid data and authenticated")
-//    public void updateUserWithValidDataAndAuthenticated(){
-//        adminAPI.updateUserWithValidDataAndAuthorization();
-//    }
+    @Given("Update user with valid data and authenticated to id user {int}")
+    public void updateUserWithValidDataAndAuthenticated(int id_user){
+        adminAPI.updateUserWithValidDataAndAuthorization(id_user);
+    }
 
     @When("Send update request")
     public void sendUpdateRequest() {
-        SerenityRest.when().put(AdminAPI.ADMIN_MANAGE_USERS);
+        SerenityRest
+                .when().put(AdminAPI.ADMIN_MANAGE_USERS_PROFILE);
     }
 
     @Then("Status code should be {int} Created")
     public void statusCodeShouldBeCreated(int created) {
-        SerenityRest.then().statusCode(created);
+        SerenityRest
+                .then().statusCode(created);
     }
+
 }

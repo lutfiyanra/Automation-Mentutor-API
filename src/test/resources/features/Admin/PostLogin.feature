@@ -1,4 +1,5 @@
 Feature: Post Login Admin
+
   @login @positive
   Scenario: Post login admin with valid value
     Given Post login with all valid value as admin
@@ -10,7 +11,7 @@ Feature: Post Login Admin
   Scenario: Post login admin with invalid email value
     Given Post login with invalid email as admin
     When Send request post login
-    Then Should return 200 OK
+    Then Should return respons body code 404 not found
 
   @login @negative
   Scenario: Post login with invalid password value
