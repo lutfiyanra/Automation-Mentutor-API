@@ -17,6 +17,12 @@ public class GetDetailTask {
 
     @When("User send request get task detail")
     public void userSendRequestGetTaskDetail() {
-        SerenityRest.when().get(MentorAPI.MANAGE_SPECIFIC_TASK_ID);
+        SerenityRest.when()
+                .get(MentorAPI.MANAGE_SPECIFIC_TASK_ID);
+    }
+
+    @Given("Get task detail from id task {int} without token")
+    public void getTaskDetailFromIdTaskWithoutToken(int id_task){
+        mentorAPI.getTaskDetailWithoutToken(id_task);
     }
 }

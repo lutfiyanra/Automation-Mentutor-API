@@ -1,3 +1,4 @@
+@Tugas
 Feature: Post Login Mentor
   @login @positive
   Scenario: Post login mentor with valid value

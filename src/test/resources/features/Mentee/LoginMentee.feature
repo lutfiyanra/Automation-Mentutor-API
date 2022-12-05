@@ -1,3 +1,4 @@
+@Tugas
 Feature: Post Login Mentee
   @login @positive
   Scenario: Post login mentee with valid value
