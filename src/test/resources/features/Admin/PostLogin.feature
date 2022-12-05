@@ -1,3 +1,4 @@
+@Tugas
 Feature: Post Login Admin
 
   @login @positive
@@ -24,7 +25,7 @@ Feature: Post Login Admin
   Scenario: Post login with invalid all data
     Given Post login as admin with invalid all data
     When Send request post login
-    Then Should return respons body code 404 not found
+    Then Should return respons body code 400 bad request
 
   @login @negative
   Scenario: Post login with empty email
@@ -43,36 +44,3 @@ Feature: Post Login Admin
     Given Post login as admin with empty data
     When Send request post login
     Then Should return respons body code 400 bad request
-
-
-
-
-
-#    And Validate post login valid value json schema
-#  @positive
-#  Scenario Outline: Login admin with valid data
-#    Given User login with email "<email>" and password "<password>"
-#    When User send request post login user
-#    Then Should return 200 OK
-#    And Response body massage is "login successful"
-#    Examples:
-#      |email                    |password   |
-#      |admin.mentutor@gmail.com |Admin123$  |
-#  @login
-#  Scenario: Post login with valid value
-#    Given Post login with all valid value as admin
-#    When Send request post login
-#    Then Should return 200 OK
-#    And Validate post login valid value json schema
-#
-#  Scenario: Post login with valid value
-#    Given Post login with all valid value as mentor
-#    When Send request post login
-#    Then Should return 200 OK
-#    And Validate post login valid value json schema
-#
-#  Scenario: Post login with valid value
-#    Given Post login with all valid value as mentee
-#    When Send request post login
-#    Then Should return 200 OK
-#    And Validate post login valid value json schema

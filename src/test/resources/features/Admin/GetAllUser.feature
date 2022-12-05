@@ -1,3 +1,4 @@
+@Tugas
 Feature: Get All Users Test
 
   @GetAllUsers @Positive

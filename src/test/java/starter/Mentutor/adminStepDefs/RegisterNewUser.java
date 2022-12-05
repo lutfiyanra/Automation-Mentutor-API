@@ -31,6 +31,7 @@ public class RegisterNewUser {
 
     @Given("Post create new user with valid data not using authorization")
     public void postCreateNewUserWithValidDataNotUsingAuthorization() {
+        adminAPI.registerNewUserWithValidDataWithoutAuthorization();
     }
     @When("Send post create new user request without authorization")
     public void sendPostCreateNewUserRequestWithoutAuthorization() {

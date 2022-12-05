@@ -1,3 +1,4 @@
+@Tugas
 Feature: Create New Class
 
   @CreateNewClass @Positive

@@ -21,5 +21,6 @@ public class GetAllClasses {
 
     @Given("Get all class without authorization")
     public void getAllClassWithoutAuthorization() {
+        adminAPI.getAllClassessWithoutAuthorization();
     }
 }

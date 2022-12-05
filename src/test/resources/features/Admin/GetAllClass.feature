@@ -1,3 +1,4 @@
+@Tugas
 Feature: Get All Classes Tests
 
   @GetAllClasses @Positive

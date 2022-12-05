@@ -28,6 +28,7 @@ public class GetAllUsers {
 
     @Given("Get all users without authorization")
     public void getAllUsersWithoutAuthorization() {
+        adminAPI.getAllUserWithoutAuthorization();
     }
 
     @Then("Status code should be {int} Bad Request")

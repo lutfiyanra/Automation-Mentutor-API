@@ -14,9 +14,8 @@ public class AdminAPI {
     public static final String JSON_SCHEMA = DIR + "/src/test/resources/JSON/JsonSchema";
     public static String ATTACHMENTS = DIR + "/src/test/resources/Attachment";
 
-    public static final String BEARER_ADMIN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZENsYXNzIjowLCJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NzAxNzgwMDQsInJvbGUiOiJhZG1pbiIsInVzZXJJZCI6MTAwMH0.AxbsDr_3JILm6Ecu_vtd-KC4pn3w50w55yzlCV-bAgc";
+    public static final String BEARER_ADMIN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZENsYXNzIjowLCJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2NzAyMzU0NzIsInJvbGUiOiJhZG1pbiIsInVzZXJJZCI6MTAwMH0.RSy5Zjqq0cVppnGEb-Vh2hKptKUbq0_4iGBiuUR6mTk";
     public static String LOGIN = URL + "/login";
-
     public static String GET_ALL_USER = URL + "/admin/users";
     //    public static String ID = "data.id";
     public static String ADMIN_MANAGE_USERS = URL + "/admin/users";
@@ -51,6 +50,11 @@ public class AdminAPI {
                 .headers("Authorization", BEARER_ADMIN);
     }
 
+    @Step("Get all users without authorization")
+    public void getAllUserWithoutAuthorization(){
+        SerenityRest.given().log().all();
+    }
+
     @Step("Register new user with valid data")
     public void registerNewUserWithValidData(File json) {
         SerenityRest.given()
@@ -58,9 +62,19 @@ public class AdminAPI {
                 .body(json).headers("Authorization", BEARER_ADMIN);
     }
 
+    @Step("Register new user with valid data without authorization")
+    public void registerNewUserWithValidDataWithoutAuthorization(){
+        SerenityRest.given().log().all();
+    }
+
     @Step("Get all classes with authorization")
     public void getAllClassesWithAuthorization() {
-        SerenityRest.given().headers("Authorization", BEARER_ADMIN);
+        SerenityRest.given()
+                .headers("Authorization", BEARER_ADMIN);
+    }
+    @Step("Get all classes without authorization")
+    public void getAllClassessWithoutAuthorization(){
+        SerenityRest.given().log().all();
     }
 
     @Step("Register new user empty name")
@@ -89,7 +103,8 @@ public class AdminAPI {
 
     @Step("Register new user empty role")
     public void registerNewUserEmptyRole(File json) {
-        SerenityRest.given().contentType(ContentType.JSON).body(json).headers("Authorization", BEARER_ADMIN);
+        SerenityRest.given().contentType(ContentType.JSON)
+                .body(json).headers("Authorization", BEARER_ADMIN);
     }
 
     @Step("Register new user with alpha numeric name input")
@@ -100,7 +115,8 @@ public class AdminAPI {
 
     @Step("Register new user with alphabet and special char name input")
     public void registerNewUserAlphabetSpecialCharInNameInput(File json) {
-        SerenityRest.given().contentType(ContentType.JSON).body(json).headers("Authorization", BEARER_ADMIN);
+        SerenityRest.given().contentType(ContentType.JSON)
+                .body(json).headers("Authorization", BEARER_ADMIN);
     }
 
     @Step("Register new user with numeric name input")
@@ -167,6 +183,11 @@ public class AdminAPI {
         SerenityRest.given()
                 .contentType(ContentType.JSON)
                 .body(json).headers("Authorization", BEARER_ADMIN);
+    }
+
+    @Step("Create new class without authorization")
+    public void createNewClassWithoutAuthorization(){
+        SerenityRest.given().log().all();
     }
 
     @Step("Create new class with numeric input")

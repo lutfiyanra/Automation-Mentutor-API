@@ -1,3 +1,4 @@
+@Tugas
 Feature: Register New User
 
   @AdminRegisterNewUser @Positive

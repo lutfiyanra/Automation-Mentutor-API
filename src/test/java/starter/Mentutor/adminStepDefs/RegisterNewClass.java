@@ -24,6 +24,7 @@ public class RegisterNewClass {
     }
     @Given("Post create new class with valid data not using authentication")
     public void postCreateNewClassWithValidDataNotUsingAuthentication() {
+        adminAPI.createNewClassWithoutAuthorization();
     }
 
     @When("Send post create new class request without authorization")
